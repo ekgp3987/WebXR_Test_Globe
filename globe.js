@@ -1,5 +1,3 @@
-import{VRButton} from 'https://cdn.skypack.dev/pin/three@v0.134.0-dfARp6tVCbGvQehLfkdx/mode=imports,min/unoptimized/examples/jsm/webxr/VRButton.js'
-export let isVRMode = false;
 
 window.onload = function init() 
 {
@@ -41,12 +39,8 @@ window.onload = function init()
 		controls.update();
 		sphere.rotation.y += 0.0005;
 		clouds.rotation.y += 0.0005;		
-
-		renderer.setAnimationLoop(function(){
-				renderer.render(scene, camera);
-		});
-		//requestAnimationFrame(render);
-		//renderer.render(scene, camera);
+		requestAnimationFrame(render);
+		renderer.render(scene, camera);
 	}
 
 	function createSphere(radius, segments) {
@@ -81,9 +75,6 @@ window.onload = function init()
 			})
 		);
 	}
-
-	renderer.xr.enabled = true;
-	document.body.appendChild(VRButton.createButton(renderer));
 }
 
 
